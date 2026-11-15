@@ -1,0 +1,52 @@
+:root {
+  --bg: #121212; --card: #282828; --text: #ffffff; --muted: #b3b3b3; --accent: #1DB954; --line: #333;
+  --mark: #5a4a00;
+}
+@media (prefers-color-scheme: light) {
+  :root { --bg: #f6f4ef; --card: #ffffff; --text: #121212; --muted: #555; --accent: #148a3d; --line: #ddd; --mark: #ffe58a; }
+}
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body { margin: 0; background: var(--bg); color: var(--text);
+  font: 17px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+a { color: var(--accent); }
+mark { background: var(--mark); color: inherit; padding: 0 2px; border-radius: 3px; }
+
+.top { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap;
+  max-width: 1040px; margin: 0 auto; padding: 16px; }
+.brand { display: flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; font-weight: 800; font-size: 20px; }
+.brand img { border-radius: 8px; }
+nav { display: flex; gap: 18px; }
+nav a { color: var(--muted); text-decoration: none; font-weight: 600; }
+nav a:hover { color: var(--text); }
+
+main { max-width: 1040px; margin: 0 auto; padding: 0 16px 48px; }
+main.text { max-width: 760px; }
+main.text h1 { font-size: 34px; line-height: 1.2; margin: 24px 0 4px; }
+.updated { color: var(--muted); margin-top: 0; }
+
+.hero { text-align: center; padding: 40px 0 32px; }
+.appicon { border-radius: 26px; }
+.hero h1 { font-size: 52px; line-height: 1.1; margin: 16px 0 4px; font-weight: 900; }
+.slogan { color: var(--accent); font-weight: 700; font-size: 20px; margin: 0 0 16px; }
+.lead { max-width: 620px; margin: 0 auto 20px; font-size: 19px; color: var(--muted); }
+.soon { display: inline-block; background: var(--card); padding: 10px 20px; border-radius: 999px; font-weight: 700; margin: 0; }
+
+.split { display: grid; grid-template-columns: 1fr 340px; gap: 40px; align-items: start; padding: 24px 0; }
+.split h2 { font-size: 22px; margin: 0 0 6px; }
+.split p { color: var(--muted); margin: 0 0 24px; }
+figure { margin: 0; }
+figure img { width: 100%; height: auto; border-radius: 16px; display: block; background: var(--card); }
+
+.contact { background: var(--card); border-radius: 16px; padding: 24px; margin-top: 16px; }
+.contact h2 { margin: 0 0 6px; }
+.contact p { margin: 0; color: var(--muted); }
+
+footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 14px; text-align: center; padding: 24px 16px; }
+footer p { margin: 4px 0; }
+
+@media (max-width: 760px) {
+  .split { grid-template-columns: 1fr; }
+  figure { max-width: 340px; margin: 0 auto; }
+  .hero h1 { font-size: 40px; }
+}
