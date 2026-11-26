@@ -23,6 +23,7 @@ h1, h2, h3 { line-height: 1.2; letter-spacing: -0.01em; }
 nav { display: flex; gap: 20px; flex: 1; }
 nav a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 15px; white-space: nowrap; }
 nav a:hover { color: var(--text); }
+.mmenu, .ftabs { display: none; }
 
 /* buttons */
 .btn { display: inline-flex; align-items: center; gap: 10px; background: var(--accent); color: #000;
@@ -161,8 +162,41 @@ footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 14px
 .legal { max-width: 1120px; margin: 28px auto 0; font-size: 13px; color: var(--dim); }
 
 @media (max-width: 960px) {
+  /* phones/tablets: the menu is a drop-down behind the three-line button */
   nav { display: none; }
-  .topin { justify-content: space-between; }
+  .topin { justify-content: space-between; gap: 12px; }
+  .topin .btn.small { margin-left: auto; }
+  .mmenu { display: block; position: relative; background: none; margin: 0; padding: 0; border-radius: 0; }
+  .mmenu summary { list-style: none; cursor: pointer; width: 40px; height: 40px; border-radius: 50%; background: var(--card);
+    display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding: 0; }
+  .mmenu summary::-webkit-details-marker { display: none; }
+  .mmenu summary::after, .mmenu[open] summary::after { content: none; }
+  .mmenu summary i { display: block; width: 18px; height: 2px; background: var(--text); border-radius: 2px; }
+  .mmenu[open] summary { background: #3a3a3a; }
+  .mlist { position: absolute; right: 0; top: 48px; background: var(--card); border-radius: 12px; padding: 6px;
+    min-width: 220px; box-shadow: 0 16px 40px rgba(0,0,0,.6); }
+  .mlist a { display: block; color: var(--text); text-decoration: none; font-weight: 600; padding: 12px 14px; border-radius: 8px; }
+  .mlist a:hover { background: #333; }
+  /* home: one feature at a time, picked with the buttons above them */
+  .js .ftabs { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 22px; }
+  .ftabs button { background: var(--card); color: var(--text); border: 0; font: inherit; font-weight: 700; font-size: 14px;
+    padding: 8px 14px; border-radius: 999px; cursor: pointer; }
+  .ftabs button.on { background: var(--text); color: #000; }
+  .js .feature:not(.on) { display: none; }
+  .js .shotsec { display: none; }
+  /* guides and tips: each part opens when you tap its heading */
+  .js .fold > h2 { cursor: pointer; position: relative; padding-right: 34px; margin: 0; padding-top: 16px; padding-bottom: 16px;
+    border-bottom: 1px solid var(--line); font-size: 21px; }
+  .js .fold > h2::after { content: "+"; position: absolute; right: 4px; top: 12px; font-size: 26px; color: var(--accent); }
+  .js .fold.open > h2::after { content: "–"; }
+  .js .fold:not(.open) > :not(h2) { display: none; }
+  .js .fold.open > h2 { border-bottom: 0; }
+  .js .fold.open { padding-bottom: 12px; border-bottom: 1px solid var(--line); }
+  .js .tipcat.fold { margin: 0; }
+  .js .hasfolds .toc { display: none; }
+  section { margin-bottom: 44px; }
+  .feature { margin-bottom: 36px; }
+  .facts { margin-bottom: 40px; }
   .hero { grid-template-columns: 1fr; padding-top: 32px; }
   .hero h1 { font-size: 42px; }
   .phones { height: 360px; max-width: 460px; margin: 0 auto; width: 100%; }
@@ -181,6 +215,41 @@ footer { border-top: 1px solid var(--line); color: var(--muted); font-size: 14px
   .sechead h2 { font-size: 30px; }
 }
 @media (max-width: 520px) {
+  body { font-size: 16px; }
+  .hero { padding: 20px 0 24px; gap: 24px; }
+  .hero h1 { font-size: 36px; }
+  .lead { font-size: 17px; margin-bottom: 20px; }
+  .facts { gap: 8px; }
+  .fact { padding: 12px 14px; }
+  .fact b { font-size: 15px; }
+  .fact span { font-size: 13px; }
+  .sechead { margin-bottom: 18px; }
+  .sechead h2 { font-size: 26px; }
+  .sechead p { font-size: 16px; }
+  /* feature rows: picture small, next to the heading and text, instead of a full screen of picture each */
+  .feature { display: grid; grid-template-columns: 1fr 110px; gap: 0 14px; align-items: start; }
+  .feature .ftext { display: contents; }
+  .feature h3 { grid-column: 1; grid-row: 1; font-size: 22px; margin-bottom: 8px; }
+  .feature .ftext > p:first-of-type { grid-column: 1; grid-row: 2; font-size: 15.5px; }
+  .feature .fpic { grid-column: 2; grid-row: 1 / span 2; padding: 0; background: none; border-radius: 0; }
+  .feature .fpic img { max-height: none; width: 110px; border-radius: 10px; }
+  .feature ul, .feature .ftext > p:not(:first-of-type) { grid-column: 1 / -1; }
+  .feature li { padding: 3px 0 3px 22px; font-size: 15px; }
+  .feature li::before { top: 11px; width: 8px; height: 8px; }
+  .shots figure { flex-basis: 150px; }
+  .shots img { width: 150px; }
+  /* guide cards two per row, title only */
+  .grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .card { padding: 14px; }
+  .card h3 { font-size: 16px; margin: 0; }
+  .card p { display: none; }
+  .card .tag { font-size: 11px; margin-bottom: 6px; }
+  .card .more { font-size: 14px; margin-top: 8px; }
+  .band { padding: 24px; gap: 18px; }
+  .band h2 { font-size: 28px; }
+  .tipcat { margin-top: 32px; }
+  .tip { padding: 14px 16px; }
+  .prose h2 { margin-top: 36px; }
   .phones { height: 300px; }
   .phones img { width: 150px; border-width: 4px; }
   .phones img:nth-child(2) { margin-left: -75px; }
