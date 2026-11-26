@@ -1,0 +1,22 @@
+# HiHatGo!
+
+> HiHatGo! is an Android app (tablets and phones) for learning drums on a real electronic drum kit connected by USB-MIDI. You play along to songs on a 3D note highway or real drum sheet music, practise rudiments and grooves with level ladders, and get every hit judged as early, late or perfect. Free download with a 7-day trial, then a one-time purchase. No subscription, no ads.
+
+Key facts:
+- Works with any electronic drum kit or pad controller that sends MIDI over USB (Alesis, Roland, Yamaha, Millenium and others); tested with the Alesis Nitro Pro.
+- Not a touchscreen drum game: it needs a real e-drum kit.
+- Android only. There is no PC, Mac or iPhone version at the moment.
+- Comes with no copyrighted songs: you import your own charts (.zip song folders, Clone Hero .sng files). The Practice page and the beat generator work without songs.
+- Get it on Google Play: https://play.google.com/store/apps/details?id=com.drumhero.appv2
+- Made by Next stop s. r. o., Bratislava, Slovakia. Contact: hihatgo@gmail.com
+
+## Pages
+
+- [Drum rudiments for beginners – the first 8 to learn and how to practise them](https://hihatgo.com/drum-rudiments.html): The essential drum rudiments for beginners with stickings: single and double stroke rolls, paradiddle, flam, drag, five and six stroke rolls. Plus a simple way to practise them so you actually get faster.
+- [HiHatGo! – Learn drums on your electronic drum kit | Android drum trainer](https://hihatgo.com/): Learn to play drums at home on your electronic drum kit. Plug your e-drums into an Android tablet by USB, play along to songs, read drum sheet music, practise rudiments and grooves. 7 days free.
+- [How to learn drums at home on an electronic drum kit – a beginner's plan](https://hihatgo.com/learn-drums.html): A practical beginner's guide to learning drums at home on an electronic kit: setting up, holding the sticks, counting, your first rock beat, a 15-minute daily practice plan and the mistakes to avoid.
+- [How to read drum sheet music – a simple guide for beginners](https://hihatgo.com/read-drum-sheet-music.html): Learn to read drum notation: where the kick, snare, hi-hat, toms and cymbals sit on the staff, note values and rests, counting 1 e & a, and how to read your first rock beat.
+- [Connect an electronic drum kit to an Android tablet (USB-MIDI) – setup guide](https://hihatgo.com/setup.html): How to connect your electronic drum kit to an Android tablet or phone with USB: which cable you need, setting up the pads, fixing latency and hits that feel late, and what to do if the kit isn't found.
+- [HiHatGo! tips and tricks – loops, speed trainer, sheet music, practice](https://hihatgo.com/tips.html): Get more out of HiHatGo!: loop the hard parts, use the speed trainer, practise fills, pass the Next level fog test, read drum sheet music, jam to any song and set up your drum kit.
+- [HiHatGo! – Privacy policy](https://hihatgo.com/privacy.html): How HiHatGo! handles your data.
+- [HiHatGo! – Terms of service](https://hihatgo.com/terms.html): The terms for using HiHatGo!.
