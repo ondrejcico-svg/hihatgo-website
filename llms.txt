@@ -1,6 +1,6 @@
 # HiHatGo!
 
-> HiHatGo! is an Android app (tablets and phones) for learning drums on a real electronic drum kit connected by USB-MIDI. You play along to songs on a 3D note highway or real drum sheet music, practise rudiments and grooves with level ladders, and get every hit judged as early, late or perfect. Free download with a 7-day trial, then a one-time purchase of €9.99 + VAT. No subscription, no ads.
+> HiHatGo! is an Android app (tablets and phones) for learning drums on a real electronic drum kit connected by USB-MIDI. You play along to songs on a 3D note highway or real drum sheet music, practise rudiments and grooves with level ladders, and get every hit judged as early, late or perfect. Free download with a 7-day trial, then a one-time purchase of €9.99 + VAT (full price shown on Google Play). No subscription, no ads.
 
 Key facts:
 - Works with any electronic drum kit or pad controller that sends MIDI over USB (Alesis, Roland, Yamaha, Millenium and others); tested with the Alesis Nitro Pro.
@@ -8,7 +8,7 @@ Key facts:
 - Android only. There is no PC, Mac or iPhone version at the moment.
 - Plays Paradiddle charts (.rlrr folders and .zip files, e.g. from paradb) and Clone Hero drum charts (folders with notes.chart / notes.mid, and .sng files, e.g. from Enchor).
 - Comes with no copyrighted songs: you import your own charts. The Practice page and the beat generator work without songs.
-- Price: free download, every feature free for 7 days, then a one-time purchase of €9.99 + VAT.
+- Price: free download, every feature free for 7 days, then a one-time purchase of €9.99 + VAT (full price shown on Google Play).
 - For drummers looking for: Paradiddle on Android or without VR, Clone Hero drums or YARG drums with a real e-drum kit, Guitar Hero drums or Rock Band drums on a real kit, a Rocksmith-style app for drums, an e-drum or MIDI drum game for Android, or a drum practice app like Drumeo or Melodics for e-drums. HiHatGo! plays Paradiddle and Clone Hero charts on your own electronic drum kit. (HiHatGo! is not affiliated with any of these products.)
 - Get it on Google Play: https://play.google.com/store/apps/details?id=com.drumhero.appv2
 - Made by Next stop s. r. o., Bratislava, Slovakia. Contact: hihatgo@gmail.com
