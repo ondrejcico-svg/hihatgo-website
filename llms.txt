@@ -6,14 +6,15 @@ Key facts:
 - Works with any electronic drum kit or pad controller that sends MIDI over USB (Alesis, Roland, Yamaha, Millenium and others); tested with the Alesis Nitro Pro.
 - Not a touchscreen drum game: it needs a real e-drum kit.
 - Android only. There is no PC, Mac or iPhone version at the moment.
-- Comes with no copyrighted songs: you import your own charts (.zip song folders, Clone Hero .sng files). The Practice page and the beat generator work without songs.
+- Plays Paradiddle charts (.rlrr folders and .zip files, e.g. from paradb) and Clone Hero drum charts (folders with notes.chart / notes.mid, and .sng files, e.g. from Enchor).
+- Comes with no copyrighted songs: you import your own charts. The Practice page and the beat generator work without songs.
 - Get it on Google Play: https://play.google.com/store/apps/details?id=com.drumhero.appv2
 - Made by Next stop s. r. o., Bratislava, Slovakia. Contact: hihatgo@gmail.com
 
 ## Pages
 
 - [Drum rudiments for beginners – the first 8 to learn and how to practise them](https://hihatgo.com/drum-rudiments.html): The essential drum rudiments for beginners with stickings: single and double stroke rolls, paradiddle, flam, drag, five and six stroke rolls. Plus a simple way to practise them so you actually get faster.
-- [HiHatGo! – Learn drums on your electronic drum kit | Android drum trainer](https://hihatgo.com/): Learn to play drums at home on your electronic drum kit. Plug your e-drums into an Android tablet by USB, play along to songs, read drum sheet music, practise rudiments and grooves. 7 days free.
+- [HiHatGo! – Learn drums on your electronic drum kit | Android drum trainer](https://hihatgo.com/): Learn to play drums at home on your electronic drum kit. Plug your e-drums into an Android tablet by USB, play along to your Paradiddle and Clone Hero charts, read drum sheet music, practise rudiments and grooves. 7 days free.
 - [How to learn drums at home on an electronic drum kit – a beginner's plan](https://hihatgo.com/learn-drums.html): A practical beginner's guide to learning drums at home on an electronic kit: setting up, holding the sticks, counting, your first rock beat, a 15-minute daily practice plan and the mistakes to avoid.
 - [How to read drum sheet music – a simple guide for beginners](https://hihatgo.com/read-drum-sheet-music.html): Learn to read drum notation: where the kick, snare, hi-hat, toms and cymbals sit on the staff, note values and rests, counting 1 e & a, and how to read your first rock beat.
 - [Connect an electronic drum kit to an Android tablet (USB-MIDI) – setup guide](https://hihatgo.com/setup.html): How to connect your electronic drum kit to an Android tablet or phone with USB: which cable you need, setting up the pads, fixing latency and hits that feel late, and what to do if the kit isn't found.
