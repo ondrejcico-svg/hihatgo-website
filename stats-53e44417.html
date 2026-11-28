@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>HiHatGo! site visitors</title>
+<link rel="icon" href="icon.png">
+<style>
+  body { margin: 0; background: #121212; color: #fff; font: 15px/1.45 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+  main { max-width: 980px; margin: 0 auto; padding: 28px 18px 60px; }
+  h1 { font-size: 26px; margin: 0 0 4px; } .muted { color: #a7a7a7; font-size: 13px; }
+  .tabs { display: flex; gap: 8px; margin: 18px 0; } .tabs button { background: #282828; color: #fff; border: 0; border-radius: 999px; padding: 8px 16px; font: inherit; cursor: pointer; }
+  .tabs button.on { background: #1DB954; color: #000; font-weight: 700; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+  .card { background: #282828; border-radius: 12px; padding: 14px 16px; } .card b { display: block; font-size: 28px; } .card span { color: #a7a7a7; font-size: 13px; }
+  h2 { font-size: 17px; margin: 26px 0 10px; }
+  .bars div { display: grid; grid-template-columns: 140px 1fr 44px; align-items: center; gap: 10px; margin: 6px 0; font-size: 14px; }
+  .bars i { display: block; height: 10px; border-radius: 5px; background: #1DB954; min-width: 2px; }
+  table { width: 100%; border-collapse: collapse; font-size: 14px; } th, td { text-align: right; padding: 7px 8px; border-bottom: 1px solid #2c2c2c; } th:first-child, td:first-child { text-align: left; }
+  th { color: #a7a7a7; font-weight: 600; }
+</style>
+</head>
+<body><main>
+<h1>Website visitors</h1>
+<div class="muted">hihatgo.com · counted without cookies · days in Slovak time · <span id="upd"></span></div>
+<div class="tabs"><button data-d="1">Today</button><button data-d="7" class="on">7 days</button><button data-d="30">30 days</button><button data-d="3650">All</button></div>
+<div class="grid" id="cards"></div>
+<h2>Where they came from</h2><div class="bars" id="src"></div>
+<h2>Pages viewed</h2><div class="bars" id="pg"></div>
+<h2>Every day</h2>
+<table><thead><tr><th>Day</th><th>Visitors</th><th>Pages</th><th>Google etc.</th><th>AI</th><th>Social</th><th>Typed / link</th><th>Phone</th><th>Play clicks</th></tr></thead><tbody id="days"></tbody></table>
+</main>
+<script>
+var DB = "https://firestore.googleapis.com/v1/projects/sktrener-6d6c0/databases/(default)/documents/site_stats?pageSize=300";
+var SRC = { s_search: "Google / search", s_ai: "AI (ChatGPT etc.)", s_social: "Social media", s_other: "Other websites", s_direct: "Typed in / app / link" };
+var PG = { p_home: "Home", p_learn: "Learn drums", p_rudiments: "Rudiments", p_sheet: "Sheet music guide", p_setup: "Connect your kit", p_tips: "Tips", p_privacy: "Privacy", p_terms: "Terms", p_other: "Other" };
+var days = [], span = 7;
+function today() { return new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Bratislava" }).format(new Date()); }
+function num(f, k) { return f && f[k] ? +f[k].integerValue : 0; }
+function sum(rows, ks) { return rows.reduce(function (a, r) { return a + ks.reduce(function (b, k) { return b + num(r.f, k); }, 0); }, 0); }
+function bars(el, map, rows) {
+  var vals = Object.keys(map).map(function (k) { return [map[k], sum(rows, [k])]; }).sort(function (a, b) { return b[1] - a[1]; });
+  var max = Math.max(1, vals[0][1]);
+  document.getElementById(el).innerHTML = vals.map(function (v) {
+    return "<div><span>" + v[0] + "</span><i style='width:" + (100 * v[1] / max) + "%'></i><b>" + v[1] + "</b></div>"; }).join("");
+}
+function draw() {
+  var cut = new Date(Date.now() - (span - 1) * 864e5); var from = new Intl.DateTimeFormat("en-CA", { timeZone: "Europe/Bratislava" }).format(cut);
+  var rows = days.filter(function (d) { return d.day >= from; });
+  var S = Object.keys(SRC), P = Object.keys(PG);
+  document.getElementById("cards").innerHTML = [
+    [sum(rows, S), "visitors"], [sum(rows, P), "pages viewed"], [sum(rows, ["c_play"]), "Google Play clicks"],
+    [sum(rows, ["s_search"]), "from Google / search"], [sum(rows, ["d_phone"]), "on phones"], [sum(rows, ["d_computer"]), "on computers"]
+  ].map(function (c) { return "<div class='card'><b>" + c[0] + "</b><span>" + c[1] + "</span></div>"; }).join("");
+  bars("src", SRC, rows); bars("pg", PG, rows);
+  document.getElementById("days").innerHTML = rows.slice().reverse().map(function (d) {
+    var f = d.f; return "<tr><td>" + d.day + "</td><td>" + sum([d], S) + "</td><td>" + sum([d], P) + "</td><td>" + num(f, "s_search") + "</td><td>" + num(f, "s_ai") +
+      "</td><td>" + num(f, "s_social") + "</td><td>" + num(f, "s_direct") + "</td><td>" + num(f, "d_phone") + "</td><td>" + num(f, "c_play") + "</td></tr>"; }).join("") ||
+    "<tr><td colspan='9'>No visits yet.</td></tr>";
+}
+document.querySelectorAll(".tabs button").forEach(function (b) { b.onclick = function () {
+  document.querySelectorAll(".tabs button").forEach(function (x) { x.classList.toggle("on", x === b); }); span = +b.dataset.d; draw(); }; });
+function load() {
+  fetch(DB).then(function (r) { return r.json(); }).then(function (j) {
+    var t = today();
+    days = (j.documents || []).map(function (d) { return { day: d.name.split("/").pop(), f: d.fields || {} }; })
+      .filter(function (d) { return d.day <= t && d.day >= "2026-11-28"; }).sort(function (a, b) { return a.day < b.day ? -1 : 1; });
+    document.getElementById("upd").textContent = "updated " + new Date().toLocaleTimeString();
+    draw();
+  });
+}
+load(); setInterval(load, 60000);
+</script>
+</body></html>
